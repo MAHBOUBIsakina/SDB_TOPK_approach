@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package data_encryption;
 
 import java.io.BufferedWriter;
@@ -13,36 +9,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import peersim.core.Control;
 
-/**
- *
- * @author sakina
- */
+
 public class DataEncryption implements Control{
     
      public DataEncryption (String prefix) {
         
     }
      
-     
-      public static int ieme_nbr_premier(int max){
-        int divis, nbr, compt = 1 ;
-         boolean Est_premier;
-         
-         for( nbr = 3; compt < max; nbr += 2 )
-         { Est_premier = true;
-           for (divis = 2; divis<= nbr/2; divis++ )
-             if ( nbr % divis == 0 )
-             { Est_premier = false;
-                break;
-             }
-           if (Est_premier)
-           {
-               compt++;
-               
-           }
-         }
-         return nbr;
-    }
+    
     
     @Override
     public boolean execute() {
@@ -54,7 +28,7 @@ public class DataEncryption implements Control{
         System.out.println("    "+a);
         int e=ieme_nbr_premier(1000);
         System.out.println("    "+e);
-        int size=2;//il faut que numR soit un multiple de size
+        int size=2;
         int k=3;
         int numC=2,numR=6;
         ListElement [] final_result=new ListElement[k];
@@ -63,13 +37,13 @@ public class DataEncryption implements Control{
             final_result[i].dataID="";
             final_result[i].score=0;
         }
-        //System.out.println("a= "+a+" e= "+e+"  ");
+        
          
         FirstProposition fp;
          try {
              fp = new FirstProposition(numC,numR,max_values_score,size);
              System.out.println("creation de la base est terminée");
-        //fp.db.printDatabase();
+        
         fp.db.sortLists();
         System.out.println("sort fini");
         //fp.db.printDatabase();
