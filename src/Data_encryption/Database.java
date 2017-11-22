@@ -1,20 +1,10 @@
 package data_encryption;
 
-
-//import proposition_1_quicksort_optimise.*;
-//import proposition_1_optimisee.*;
-//import proposition_1_hash_function_byte.*;
-//import propo1_pqt_tll_eg_vector2.*;
-//import propo1_pqt_tll_eg_vector.*;
-//import proposition1_equal_size_packets.*;
 import java.util.Base64;
 import java.io.*;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-//import org.apache.commons.math3.distribution.NormalDistribution;
-//import org.apache.commons.math3.random.JDKRandomGenerator;
-
 
 
 public class Database {
@@ -43,15 +33,13 @@ public class Database {
         lists[i].elements[j] = new ListElement();
       }
     }
-    InputStream flux=new FileInputStream("/home/sakina/Desktop/sakina/Desktop/Netbeans Projects/resultat100million1.txt"); 
+    InputStream flux=new FileInputStream("Uniform_database.txt"); 
     InputStreamReader lecture=new InputStreamReader(flux);
     BufferedReader buff=new BufferedReader(lecture);
     String ligne;
-    //while ((ligne=buff.readLine())!=null){
-	//System.out.println(ligne);
-    //}
+    
    
-    //}
+    
     //remplir les listes par des données synthétique   
     for (i=0; i<m; ++i) {
       lists[i] = new List();
@@ -124,35 +112,7 @@ public class Database {
   
 
   
-//    public Database(int in_m, int in_n) throws FileNotFoundException, IOException
-//  {
-//    m = in_m;
-//    n = in_n;
-//    lists = new List[m];
-//    
-//    
-//    
-//     int i, j;
-//    for (i=0; i<m; ++i) {
-//      lists[i] = new List();
-//      lists[i].elements = new ListElement[n];
-//      for (j=0; j<n; ++j)
-//      {
-//        lists[i].elements[j] = new ListElement();
-//      }
-//    }
-//    
-//    gaussian_distribution(n,m);
-//    
-//    
-//     dataPositions = new DataItemPositions [n];
-//    for (j=0; j<n; ++j) {
-//      dataPositions[j] = new DataItemPositions();
-//      dataPositions[j].dataID = ""+j;
-//      dataPositions[j].positionsInLists = new int [m];
-//    }
-//  }
-//
+
 
  public void sortLists() {
     
@@ -163,37 +123,19 @@ public class Database {
 	 for (int i=0; i<m; ++i) {
             long debut=System.currentTimeMillis();
              if((i==0)||(i==1)){
-                 //tribulles2(i);
                  QSort(0,n-1,i); 
              }else{
                     QSort(0,n-1,i); 
                     }
-//            
+            
             //tri_entier(i);
             long fin=System.currentTimeMillis();
             System.out.println("liste ["+i+"] est triée dans "+(fin-debut));
-//	      lists[i].sortElements(n);
-//	      for (int j=0; j<n; ++j)
-//	      {
-//	        dataID = lists[i].elements[j].dataID;
-//               
-//	        dataPositions[Integer.parseInt(dataID)].positionsInLists[i] =j;
-//	      }
-              //  tribulles2(i);
-           // QSort(0,n-1,i);
-
-
          }
-        // for (int i = 0; i < n; i++) {
-//             dataID=dataPositions[i].dataID;
-//         positions_elem.put(dataID, dataPositions[i].positionsInLists);
-       //  System.out.println("    "+lists[0].elements[i].dataID+"    "+Arrays.toString(positions_elem.get(lists[0].elements[i].dataID)));
-    // }
-         
- }
+   }
  
  
-  public int  partition( int  G,  int  D  ,int k){  // partition / Sedgewick /
+  public int  partition( int  G,  int  D  ,int k){ 
       String dataID ;
    int  i, j ,x=0,y=0;
    double piv;
@@ -253,10 +195,8 @@ public class Database {
   {
     i  =  partition ( G,D,k);
     QSort ( G,i - 1,k );
-    //System.out.println("hhhhhhhhhhhhhhhhhhhhhhh");
     QSort ( i + 1,D,k );
-    //System.out.println("kkkkkkkkkkkkkkkkkkkkk");
-  }
+    }
  }
 
 
@@ -311,16 +251,14 @@ public class Database {
                                         positions_elem.get(dataID)[h] =j;
                                 }
                 
-        } // fin tri
+        } 
 
 
 public  void tribulles2(int h)
         { 
   int longueur=n;
-  //System.out.println("la taille de la liste est "+lists.length);
         boolean inversion;
         ListElement x;
-        //String dataID;
         do
             {
             inversion=false;
@@ -331,14 +269,11 @@ public  void tribulles2(int h)
                     {
                     x=lists[h].elements[f+1];
                     lists[h].elements[f+1]=lists[h].elements[f];
-                    //dataID = ""+lists[h].elements[f+1].dataID;
                     positions_elem.get(lists[h].elements[f+1].dataID)[h] =f+1;
                     lists[h].elements[f]=x;
-                    //dataID = ""+lists[h].elements[f].dataID;
                     positions_elem.get(lists[h].elements[f].dataID)[h] =f;
                     inversion=true;
                     }else{
-                    //dataID = ""+lists[h].elements[f].dataID;
                     positions_elem.get(lists[h].elements[f].dataID)[h] =f;
                 }
                 }
@@ -359,7 +294,6 @@ public void tri_entier (int h){
     }
     int c=0;
     for (int i = (tab.length-1); i >=0 ; i--) {
-        //System.out.println("bbbbb"+ i);
         for (int j = 0; j < tab[i].value; j++) {
             lists[h].elements[c].score=i;
             lists[h].elements[c].dataID=tab[i].ids.elementAt(j);
@@ -369,18 +303,7 @@ public void tri_entier (int h){
     }
 }
 
-//public void gaussian_distribution (int nbr_n,int nbr_m){
-//     NormalDistribution n = new NormalDistribution(new JDKRandomGenerator(),0.5, 0.4); //mean 0 std 1 variance 1
-//     for (int i = 0; i < nbr_m; i++) {
-//        lists[i] = new List();
-//        lists[i].elements = new ListElement[nbr_n];
-//         for(int j = 0; j < nbr_n; j++) {
-//            lists[i].elements[j] = new ListElement();
-//            lists[i].elements[j].dataID=""+j;
-//            lists[i].elements[j].score = n.sample();
-//        }
-//    }
-//}
+
 }
 
 
