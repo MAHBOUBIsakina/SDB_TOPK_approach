@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package basic_approach_one_msg.core;
 
 import peersim.config.Configuration;
@@ -15,23 +11,13 @@ import peersim.core.OverlayGraph;
 import peersim.edsim.EDSimulator;
 import peersim.edsim.PriorityQ.Event;
 import peersim.graph.Graph;
-//import simulation_tests.BenounaNode;
-//import simulation_tests.TalkingProtocol;
 
-/**
- *
- * @author sakina
- */
 public class NetworkDistributedConstructor implements Control{
     
     private static final String PAR_PROT = "protocol";
     
     
     protected final int protid;
-    
-    //protected final int pTalkingID;
-    
-    //protected final int cdprotID;
     
     public Graph g=null;
     
