@@ -5,8 +5,8 @@
  */
 package basic_approach_one_msg.core;
 
-import data_encryption.DataEncryption;
-import static data_encryption.DataEncryption.ieme_nbr_premier;
+
+
 import data_encryption.FirstProposition;
 import data_encryption.ListElement;
 import data_encryption.MyBlowfish;
@@ -107,6 +107,28 @@ public class SimulationController implements Control{
      * Invoked by the simulation engine.
      * @param name the configuration prefix for this class
      */
+    
+     
+      public static int ieme_nbr_premier(int max){
+        int divis, nbr, compt = 1 ;
+         boolean Est_premier;
+         
+         for( nbr = 3; compt < max; nbr += 2 )
+         { Est_premier = true;
+           for (divis = 2; divis<= nbr/2; divis++ )
+             if ( nbr % divis == 0 )
+             { Est_premier = false;
+                break;
+             }
+           if (Est_premier)
+           {
+               compt++;
+               
+           }
+         }
+         return nbr;
+    }
+    
     public SimulationController(String name) {
         this.name = name;
         this.step1pid = Configuration.getPid(name + "." + PAR_PROT_STEP1);
